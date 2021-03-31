@@ -80,7 +80,7 @@ class testcase(unittest.TestCase):
         cls.driver.quit()
 
     def tearDown(self) -> None:
-        print('测试结束哈')
+        print('测试结束了')
 
 if __name__=="__main__":
     unittest.main()
