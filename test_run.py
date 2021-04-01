@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from src.testcase.test_albumplay import test_albumplay_case
+from testcase.test_albumplay import test_albumplay_case
+from testcase.test_start import testcase
 from HTMLTestRunner_Chart import HTMLTestRunner
 import time
 
@@ -9,6 +10,11 @@ import time
 suite = unittest.TestSuite()
 testcase1 = [test_albumplay_case("test10_order")]
 suite.addTests(testcase1)
+
+# '''单独执行某些Case'''
+# suite = unittest.TestSuite()
+# testcase1 = [testcase("test_01login")]
+# suite.addTests(testcase1)
 
  # '''执行单一文件下的所有Case'''
 # suite=unittest.TestSuite()
