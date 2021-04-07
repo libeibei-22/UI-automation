@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from common import basepage
+from common import base_method
 from appium.webdriver.common import mobileby
 
 
-class startpage(basepage.Base_page):
+class startpage(base_method.Base_page):
     by=mobileby.MobileBy()
     '''包含启动页，开屏广告，插屏广告，个性化选择页'''
     enterbtn=(by.ID,"com.shinyv.cnr:id/btn_enter")  #启动图，进入app按钮

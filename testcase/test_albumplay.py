@@ -4,7 +4,7 @@ from config import driver_config
 import unittest
 import time
 from page import albumplay, albumdetail, Search, login, startpage
-
+from common import base_method
 
 class test_albumplay_case(unittest.TestCase):
     '''播放相关case'''
@@ -18,6 +18,7 @@ class test_albumplay_case(unittest.TestCase):
         cls.album_play= albumplay.albumplay(cls.driver)
         cls.startpage= startpage.startpage(cls.driver)
         cls.login= login.login_page(cls.driver)
+        cls.device=base_method.Base_page(cls.driver)
 
     def setUp(self):
         print('开始执行Case')
@@ -113,7 +114,7 @@ class test_albumplay_case(unittest.TestCase):
             return True
         self.add_img()
     def test08_playmode(self):
-        '''切换播放模式'''
+        '''切换播放模式（循环模式）'''
         self.search_song.searchkeywords_firstone("测试专辑8")
         self.album_detail.selectfirstsong()
         self.album_play.click_songlist()
@@ -126,17 +127,23 @@ class test_albumplay_case(unittest.TestCase):
         self.add_img()
 
     def test09_playlistsort(self):
-        '''播放排序'''
+        '''播放排序（列表排序）'''
         self.search_song.searchkeywords_firstone("测试专辑8")
         self.album_detail.selectfirstsong()
         self.album_play.click_songlist()
-        sort1 = self.album_play.get_playsort()
-        self.add_img()
-        self.album_play.click_playsort()
-        self.album_play.click_songlist_closed()
-        self.album_play.click_songlist()
-        sort2= self.album_play.get_playsort()
-        self.assertNotEqual(sort1,sort2)
+        if self.album_play.get_playsort()=="正序":
+            self.album_play.click_playsort()
+            time.sleep(3)
+            songname=self.album_play.songlistfirstone_get()
+            self.assertIn("3",songname)
+            self.add_img()
+        elif self.album_play.get_playsort()=="倒序":
+            self.album_play.click_playsort()
+            time.sleep(3)
+            songname=self.album_play.songlistfirstone_get()
+            self.assertIn("1",songname)
+            self.add_img()
+
     def test10_order(self):
         '''单曲订阅'''
         self.search_song.searchkeywords_firstone("测试专辑8")
@@ -161,7 +168,83 @@ class test_albumplay_case(unittest.TestCase):
             self.assertEqual(self.album_play.get_order_status(),"订阅")
             self.add_img()
 
+    def test11_moredown(self):
+        '''更多-下载'''
+        self.search_song.searchkeywords_firstone("测试专辑8")
+        self.album_detail.selectfirstsong()
+        self.album_play.more_click()
+        if self.album_play.moredownloadtext_get()=="下载":
+            self.add_img()
+            self.album_play.moredownload_click()
+            toastname=self.device.get_toast_text(self.driver)
+            self.assertEqual(toastname,"正在下载...")
+            time.sleep(5)
+            self.album_play.more_click()
+            self.assertEqual(self.album_play.moredownloadtext_get(),"已下载")
+            self.add_img()
+        elif self.album_play.moredownloadtext_get()=="已下载":
+            print("该单曲已下载过")
+            self.album_play.moredownload_click()
+            toastname=self.device.get_toast_text(self.driver)
+            print(toastname)
+            self.assertEqual(toastname,"已经添加到下载列表")
 
+
+    def test12_morecollect(self):
+        '''更多-收藏'''
+        self.search_song.searchkeywords_firstone("测试专辑8")
+        self.album_detail.selectfirstsong()
+        self.album_play.more_click()
+        collecttext1 = self.album_play.morecollecttext_get()
+        self.album_play.morecollect_click()
+        try:
+            self.login.click_enloginpassword()
+            self.login.login("14444444441", "111111")
+            print("未登录状态，已登录成功")
+            self.album_play.more_click()
+            collecttext1=self.album_play.morecollecttext_get()
+            self.add_img()
+            self.album_play.morecollect_click()
+            self.album_play.more_click()
+            collecttext2=self.album_play.morecollecttext_get()
+            self.add_img()
+            self.assertNotEqual(collecttext1,collecttext2)
+        except Exception as e:
+            self.album_play.more_click()
+            collecttext2 = self.album_play.morecollecttext_get()
+            self.add_img()
+            self.assertNotEqual(collecttext1,collecttext2)
+    def test13_hd(self):
+        '''切换音质'''
+        self.search_song.searchkeywords_firstone("测试专辑8")
+        self.album_detail.selectfirstsong()
+        if self.album_play.hdtext_get()=="标准":
+            self.album_play.hd_click()
+            self.album_play.hd2_click()
+            self.assertEqual(self.album_play.hdtext_get(),"高品质")
+            self.add_img()
+        elif self.album_play.hdtext_get()=="高品质":
+            self.album_play.hd_click()
+            self.album_play.hd1_click()
+            self.assertEqual(self.album_play.hdtext_get(),"标准")
+            self.add_img()
+    def test14_speed(self):
+        '''倍速切换'''
+        self.search_song.searchkeywords_firstone("测试专辑8")
+        self.album_detail.selectfirstsong()
+        try:
+            self.album_play.speed_click()
+            self.album_play.speedv1_click()
+            self.add_img()
+            self.album_play.speed_click()
+            self.album_play.speedv5_click()
+            self.add_img()
+            return True
+        except Exception as e:
+            return False
+    def test15_speedtochannel(self):
+        '''切换倍速后，查看电台回听的倍速，待补充'''
+        pass
 
     def tearDown(self) -> None:
         print("Case执行完毕")

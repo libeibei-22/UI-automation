@@ -1,7 +1,0 @@
-#登录模块元素
-
-enloginpassword: "com.shinyv.cnr:id/right_txt1"  #账号密码登录入口
-phoneinput: "com.shinyv.cnr:id/login_user_edit"  #手机号输入框
-passwordinput: "com.shinyv.cnr:id/login_password_edit"  #密码输入框
-loginbutton: "com.shinyv.cnr:id/login_btn"  #登录按钮
-

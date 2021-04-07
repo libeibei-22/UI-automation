@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from common import basepage
+from common import base_method
 from appium.webdriver.common import mobileby
 import yaml
-class basetab(basepage.Base_page):
+class basetab(base_method.Base_page):
     by=mobileby.MobileBy()
-    with open('D:/android-sdk_r24.4.1-windows/android-sdk-windows/tools/untitled/data/basetab', 'r', encoding='utf-8') as f:
-        result=yaml.load(f.read(),Loader=yaml.FullLoader)  #此处修改成本地路径哈哈
+    with open(base_method.Base_page.data_save_address+'/element', 'r', encoding='utf-8') as f:
+        result=yaml.load(f.read(),Loader=yaml.FullLoader)["basetab"]
+
     firsttab=(by.ID,result["firsttab"])  #听精品tab
     livetab=(by.ID,result["livetab"])  #听广播tab
     tvtab=(by.ID,result["tvtab"])  #听电视tab

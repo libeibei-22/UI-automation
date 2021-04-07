@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from common import basepage
+from common import base_method
 from appium.webdriver.common import mobileby
 import time
 
-class search(basepage.Base_page):
+class search(base_method.Base_page):
     by=mobileby.MobileBy()
     #搜索框
     searchButton=(by.ID,"com.shinyv.cnr:id/layout_search")

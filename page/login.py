@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from common import basepage
+from common import base_method
 from appium.webdriver.common import mobileby
 import time
 import yaml
 
-class login_page(basepage.Base_page):
-    with open('D:/android-sdk_r24.4.1-windows/android-sdk-windows/tools/untitled/data/login.yaml', 'r',
+class login_page(base_method.Base_page):
+    with open(base_method.Base_page.data_save_address+'/element', 'r',
               encoding='utf-8') as f:
-        result = yaml.load(f.read(), Loader=yaml.FullLoader)
+        result = yaml.load(f.read(), Loader=yaml.FullLoader)["login"]
     by = mobileby.MobileBy()
     enloginpassword=(by.ID,result["enloginpassword"]) #密码登录入口
     phoneinput=(by.ID,result["phoneinput"]) #手机号输入框

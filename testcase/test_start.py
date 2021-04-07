@@ -5,7 +5,7 @@ import unittest
 import time
 from page import login, basetab, startpage
 from page import albumplay, albumdetail, Search
-from common import basepage
+from common import base_method
 
 
 class testcase(unittest.TestCase):
@@ -19,7 +19,7 @@ class testcase(unittest.TestCase):
         cls.album_play = albumplay.albumplay(cls.driver)
         cls.startpage= startpage.startpage(cls.driver)
         cls.login = login.login_page(cls.driver)
-        cls.device= basepage.Base_page(cls.driver)
+        cls.device= base_method.Base_page(cls.driver)
         cls.basetab= basetab.basetab(cls.driver)
     def setUp(self) -> None:
         print ('start testing')
@@ -47,7 +47,7 @@ class testcase(unittest.TestCase):
         pass
 
     def test_01login(self):
-        time.sleep(10)
+        time.sleep(2)
         self.basetab.click_mytab()
         try:
             self.driver.find_element_by_id("com.shinyv.cnr:id/unLogin_btn").is_displayed()
@@ -63,6 +63,9 @@ class testcase(unittest.TestCase):
         self.driver.find_element_by_id("com.shinyv.cnr:id/unLogin_btn").click()
         self.login= login.login_page(self.driver)
         self.login.login("15810436915","123456")
+        toastname=self.device.get_toast_text(self.driver)
+        print (toastname)
+        self.assertEqual(toastname,"登录成功")
         time.sleep(5)
         text1=self.driver.find_element_by_id("com.shinyv.cnr:id/tv_sign").text
         self.assertEqual(text1,"签到","签到按钮文案错误")

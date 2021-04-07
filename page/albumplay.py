@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from common import basepage
+from common import base_method
 from appium.webdriver.common import mobileby
 import yaml
-class albumplay(basepage.Base_page):
+class albumplay(base_method.Base_page):
     by=mobileby.MobileBy()
-    with open('D:/android-sdk_r24.4.1-windows/android-sdk-windows/tools/untitled/data/albumplay', 'r', encoding='utf-8') as f:
-        result=yaml.load(f.read(),Loader=yaml.FullLoader)
+    with open(base_method.Base_page.data_save_address+'/element', 'r', encoding='utf-8') as f:
+        result=yaml.load(f.read(),Loader=yaml.FullLoader)["albumplay"]
     playbtn=(by.ID,result["playbtn"]) #播放按钮
     nextbtn=(by.ID,result["nextbtn"]) #下一首
     previousbtn=(by.ID,result["previousbtn"])  #上一首
@@ -22,10 +22,23 @@ class albumplay(basepage.Base_page):
     playseekbar=(by.ID,result["playseekbar"]) #播放进度条
     orderbtn=(by.ID,result["orderbtn"]) #订阅按钮
     songlist=(by.ID,result["songlist"]) #播放列表
+    songlistfirstone=(by.ID,result["songlistfirstone"])  # 播放列表中，第一个位置
     playmode=(by.ID,result["playmode"]) #播放模式：顺序，随机，单曲循环
     songlistsort=(by.ID,result["songlistsort"]) #播放列表排序
     songlist_closedbtn=(by.ID,result["songlist_closedbtn"]) #播放列表关闭按钮
-
+    songlistitme=(by.XPATH,result["songlistitem"]) #播放列表选项
+    moreclose=(by.ID,result["moreclose"]) #更多弹框，关闭按钮
+    moredownload=(by.ID,result["moredownload"]) #更多弹框，下载按钮
+    moreviewalbum=(by.ID,result["moreviewalbum"]) # 更多弹框，查看专辑
+    morecllect=(by.ID,result["morecllect"]) # 更多弹框，收藏按钮
+    hd1=(by.XPATH, result["hd1"])  # 标准音质选项
+    hd2=(by.XPATH, result["hd2"]) # 高品质音质选项
+    replyenter=(by.ID,result["replyenter"])  # 底部评论入口
+    replybtn=(by.ID,result["replybtn"])  # 底部评论按钮
+    replyedit=(by.ID,result["replyedit"])  # 评论输入框
+    replysend=(by.ID,result["replysend"])  # 评论发送按钮
+    speedv5=(by.ID,result["speedv5"]) #5倍速选项
+    speedv0 = (by.ID,result["speedv0"])  # 0.5倍速选项
     #点击播放按钮
     def click_play(self):
         self.find_element(*self.playbtn).click()
@@ -79,6 +92,38 @@ class albumplay(basepage.Base_page):
     def get_playsort(self):
         sort=self.find_element(*self.songlistsort).text
         return sort
+    def click_songlistitem(self):
+        self.find_element(*self.songlistitme).click()
+    def songlistfirstone_get(self):
+        return self.find_element(*self.songlistfirstone).text
+    def more_click(self):
+        self.find_element(*self.more).click()
+    def moredownload_click(self):
+        self.find_element(*self.moredownload).click()
+    def moredownloadtext_get(self):
+        return self.find_element(*self.moredownload).text
+    def morecollect_click(self):
+        self.find_element(*self.morecllect).click()
+    def morecollecttext_get(self):
+        return self.find_element(*self.morecllect).text
+    def moreviewalbum_click(self):
+        self.find_element(*self.moreviewalbum).click()
+    def hd_click(self):
+        self.find_element(*self.hd).click()
+    def hdtext_get(self):
+        return self.find_element(*self.hd).text
+    def hd1_click(self):
+        self.find_element(*self.hd1).click()
+    def hd2_click(self):
+        self.find_element(*self.hd2).click()
+    def speed_click(self):
+        self.find_element(*self.speed).click()
+    def speedv5_click(self):
+        self.find_element(*self.speedv5).click()
+    def speedv1_click(self):
+        self.find_element(*self.speedv0).click()
+
+
 
 
 

@@ -1,0 +1,49 @@
+#单曲播放页相关元素
+albumplay:
+  playbtn: "com.shinyv.cnr:id/play_img" #播放按钮
+  nextbtn: "com.shinyv.cnr:id/play_song_next" #下一首
+  previousbtn: "com.shinyv.cnr:id/play_song_previous"  #上一首
+  playlist: "com.shinyv.cnr:id/play_song_list" #播放列表入口
+  alarm: "com.shinyv.cnr: id / play_song_alarm" #定时关闭
+  speed: "com.shinyv.cnr:id/ibtn_speed" #倍速
+  hd: "com.shinyv.cnr:id/ibtn_hd" #音质
+  rate: "com.shinyv.cnr:id/ibtn_rate" #音质右侧的按钮
+  more: "com.shinyv.cnr:id/play_song_more" #右上角更多按钮
+  songback: "com.shinyv.cnr:id/play_song_back" #返回按钮
+  albumtitle: "com.shinyv.cnr:id/tv_title" #专辑名称
+  playsongname: "com.shinyv.cnr:id/play_song_name"  #单曲名称
+  playseekbar: "com.shinyv.cnr:id/play_song_seekbar" #播放进度条
+  orderbtn: "com.shinyv.cnr:id/btn_order" #订阅按钮
+  songlist: "com.shinyv.cnr:id/song_list_listview" #播放列表
+  playmode: "com.shinyv.cnr:id/tv_play_mode" #播放模式：顺序，随机，单曲循环
+  songlistsort: "com.shinyv.cnr:id/tv_sort" #播放列表排序
+  songlistfirstone: "com.shinyv.cnr:id/song_item_name" #播放列表中，第一个位置
+  songlist_closedbtn: "com.shinyv.cnr:id/song_list_close" #播放列表关闭按钮
+  songlistitem: "//android.widget.RelativeLayout[1]/android.widget.TextView" #xpath，播放列表中第一个单曲位置
+  songlistdownload: "//android.widget.RelativeLayout[1]/android.widget.ImageView" #xpath,播放列表中第一个下载按钮位置
+  moreclose: "com.shinyv.cnr:id/tv_close" #更多弹框，关闭按钮
+  moredownload: "com.shinyv.cnr:id/download_txt" #更多弹框，下载按钮
+  moreviewalbum: "com.shinyv.cnr:id/view_album" #更多弹框，查看专辑
+  morecllect: "com.shinyv.cnr:id/tv_collect" #更多弹框，收藏按钮
+  hd1: "//android.widget.LinearLayout/android.widget.RelativeLayout[1]" #标准音质选项
+  hd2: "//android.widget.LinearLayout/android.widget.RelativeLayout[2]" #高品质音质选项
+  replyenter: "com.shinyv.cnr:id/fl_reply" #底部评论入口
+  replybtn: "com.shinyv.cnr:id/play_song_comment" #底部评论按钮
+  replyedit: "com.shinyv.cnr:id/reply_edittext" #评论输入框
+  replysend: "com.shinyv.cnr:id/btn_send" #评论发送按钮
+  speedv5: "com.shinyv.cnr:id/tv5" #2.0倍速
+  speedv0: "com.shinyv.cnr:id/tv0" #0.5倍速
+#页面底部的tab和悬浮球
+basetab:
+  firsttab: "com.shinyv.cnr:id/tab_1_parent" # 听精品tab
+  livetab: "com.shinyv.cnr:id/tab_2_parent"  # 听广播tab
+  tvtab: "com.shinyv.cnr:id/tab_3_parent"  # 听电视tab
+  mytab: "com.shinyv.cnr:id/tab_4_parent" #我的tab
+  playbtn: "com.shinyv.cnr:id/play_btn"  #悬浮球播放器
+
+#登录页
+login:
+  enloginpassword: "com.shinyv.cnr:id/right_txt1"  #账号密码登录入口
+  phoneinput: "com.shinyv.cnr:id/login_user_edit"  #手机号输入框
+  passwordinput: "com.shinyv.cnr:id/login_password_edit"  #密码输入框
+  loginbutton: "com.shinyv.cnr:id/login_btn"  #登录按钮

@@ -1,7 +1,0 @@
-#页面底部的tab和悬浮球
-
-firsttab: "com.shinyv.cnr:id/tab_1_parent" # 听精品tab
-livetab: "com.shinyv.cnr:id/tab_2_parent"  # 听广播tab
-tvtab: "com.shinyv.cnr:id/tab_3_parent"  # 听电视tab
-mytab: "com.shinyv.cnr:id/tab_4_parent" #我的tab
-playbtn: "com.shinyv.cnr:id/play_btn"  #悬浮球播放器
