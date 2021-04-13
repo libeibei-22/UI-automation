@@ -16,14 +16,15 @@ import time
 # testcase1 = [testcase("test_01login")]
 # suite.addTests(testcase1)
 
- # '''执行单一文件下的所有Case'''
-# suite=unittest.TestSuite()
-# suite.addTests(unittest.TestLoader().loadTestsFromTestCase(test_albumplay_case))
+'''执行指定模块下的所有Case'''
+suite=unittest.TestSuite()
+# suite.addTests(unittest.TestLoader().loadTestsFromTestCase(testcase))
+suite.addTests(unittest.TestLoader().loadTestsFromTestCase(test_albumplay_case))
 
 
-'''执行目录下的所有case'''
-path='./testcase/'
-suite=unittest.defaultTestLoader.discover(path,pattern="test_*.py")
+# '''执行目录下的所有case'''
+# path='./testcase/'
+# suite=unittest.defaultTestLoader.discover(path,pattern="test_*.py")
 
 '''生成测试报告'''
 if __name__=="__main__":

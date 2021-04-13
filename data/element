@@ -33,6 +33,15 @@ albumplay:
   replysend: "com.shinyv.cnr:id/btn_send" #评论发送按钮
   speedv5: "com.shinyv.cnr:id/tv5" #2.0倍速
   speedv0: "com.shinyv.cnr:id/tv0" #0.5倍速
+  paopaoview: "com.shinyv.cnr:id/oIv_ad_paopao" #泡泡条view
+  paopaotitle: "com.shinyv.cnr:id/tv_ad_paopao_title" #泡泡条标题（第一标题）
+  paopaodes: "com.shinyv.cnr:id/tv_ad_paopao_des" #泡泡条描述（第二标题）
+  XZP: "//*[@resource-id='android:id/text1']" #评论/主创/描述 文本
+  zhuchuangname: "com.shinyv.cnr:id/tv_name" #主创昵称
+  zhuchuangdes: "com.shinyv.cnr:id/tv_des" #主创简介
+  zhuchuangfocus: "com.shinyv.cnr:id/btn_focus" #主创关注按钮
+  zhuchuangmsg: "com.shinyv.cnr:id/ibtn_msg" #主创私信入口
+
 #页面底部的tab和悬浮球
 basetab:
   firsttab: "com.shinyv.cnr:id/tab_1_parent" # 听精品tab
@@ -47,3 +56,15 @@ login:
   phoneinput: "com.shinyv.cnr:id/login_user_edit"  #手机号输入框
   passwordinput: "com.shinyv.cnr:id/login_password_edit"  #密码输入框
   loginbutton: "com.shinyv.cnr:id/login_btn"  #登录按钮
+
+#搜索相关
+search:
+  searchenter: "com.shinyv.cnr:id/layout_search" #首页搜索框
+  etsearch: "com.shinyv.cnr:id/et_search" #点击首页搜索入口后的搜索框
+  beginsearchbutton: "com.shinyv.cnr:id/search_top_text" #开始搜索按钮
+  firstresult: "//*[@resource-id='com.shinyv.cnr:id/name']" #搜索结果id
+
+#专辑详情页
+albumdetail:
+  songlist: "//*[@resource-id='com.shinyv.cnr:id/album_item_name']" #详情页单曲列表，单曲名称id
+  albumname: "com.shinyv.cnr:id/tv_album_name" #专辑名称

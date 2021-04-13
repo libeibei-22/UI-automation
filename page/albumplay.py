@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-
+'''
+封装了单曲播放页面
+各个元素的定位
+大部分元素的点击和获取文本的方法
+'''
 from common import base_method
 from appium.webdriver.common import mobileby
 import yaml
@@ -33,12 +37,20 @@ class albumplay(base_method.Base_page):
     morecllect=(by.ID,result["morecllect"]) # 更多弹框，收藏按钮
     hd1=(by.XPATH, result["hd1"])  # 标准音质选项
     hd2=(by.XPATH, result["hd2"]) # 高品质音质选项
-    replyenter=(by.ID,result["replyenter"])  # 底部评论入口
+    replyenter=(by.ID,result["replyenter"])  # 底部评论框
     replybtn=(by.ID,result["replybtn"])  # 底部评论按钮
     replyedit=(by.ID,result["replyedit"])  # 评论输入框
     replysend=(by.ID,result["replysend"])  # 评论发送按钮
     speedv5=(by.ID,result["speedv5"]) #5倍速选项
     speedv0 = (by.ID,result["speedv0"])  # 0.5倍速选项
+    paopaoview=(by.ID, result["paopaoview"]) # 泡泡条view
+    paopaotitle=(by.ID, result["paopaotitle"])  # 泡泡条标题（第一标题）
+    paopaodes=(by.ID, result["paopaodes"])  # 泡泡条描述（第二标题）
+    XZP=result['XZP'] #评论/主创/描述 文本
+    zhuchuangname=(by.ID,result["zhuchuangname"]) #主创昵称
+    zhuchuangdes=(by.ID,result["zhuchuangdes"]) #主创简介
+    zhuchuangfocus=(by.ID,result["zhuchuangfocus"]) #关注主创
+    zhuchuangmsg=(by.ID,result["zhuchuangmsg"]) #主创私信
     #点击播放按钮
     def click_play(self):
         self.find_element(*self.playbtn).click()
@@ -122,6 +134,32 @@ class albumplay(base_method.Base_page):
         self.find_element(*self.speedv5).click()
     def speedv1_click(self):
         self.find_element(*self.speedv0).click()
+    def replyenter_click(self):
+        self.find_element(*self.replyenter).click()
+    def replyedit_input(self,replycontent):
+        self.send_keys(replycontent,*self.replyedit)
+    def replysend_click(self):
+        self.find_element(*self.replysend).click()
+    def paopao_click(self):
+        self.find_element(*self.paopaoview).click()
+    def paopaoTitle_get(self):
+        return self.find_element(*self.paopaotitle).text
+    def paopaoDes_get(self):
+        return self.find_element(*self.paopaodes).text
+    def paopaoview_Display(self):
+        return self.find_element(*self.paopaoview).is_displayed()
+    def XZP_click(self,item):
+        self.find_element(self.by.XPATH,self.XZP+'[@text={}]'.format("'"+item+"'")).click()
+    def zhuchuangname_get(self):
+        return self.find_element(*self.zhuchuangname).text
+    def zhuchangdes_get(self):
+        return self.find_element(*self.zhuchuangdes).text
+    def zhuchuangfocus_click(self):
+        self.find_element(*self.zhuchuangfocus).click()
+    def zhuchuangmsg_click(self):
+        self.find_element(*self.zhuchuangmsg).click()
+
+
 
 
 

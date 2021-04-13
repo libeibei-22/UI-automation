@@ -28,13 +28,13 @@ class Base_page:
         except AttributeError as e:
             raise e
 
-    def get_toast_text(self,driver,timeout=20, poll_frequency=0.1):
+    def get_toast_text(self,timeout=20, poll_frequency=0.1):
         '''
             定位toast元素，获取text属性
             '''
         toast_loc = (By.XPATH, '//*[@class="android.widget.Toast"]')
         try:
-            toast = WebDriverWait(driver,timeout, poll_frequency).until(
+            toast = WebDriverWait(self.driver,timeout, poll_frequency).until(
                 EC.presence_of_element_located(toast_loc)
             )
             toast_text = toast.get_attribute('text')
