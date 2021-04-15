@@ -63,6 +63,7 @@ search:
   etsearch: "com.shinyv.cnr:id/et_search" #点击首页搜索入口后的搜索框
   beginsearchbutton: "com.shinyv.cnr:id/search_top_text" #开始搜索按钮
   firstresult: "//*[@resource-id='com.shinyv.cnr:id/name']" #搜索结果id
+  resultTab: "//*[@resource-id='android:id/text1']" #搜索结果tab 精选、专辑、主播...
 
 #专辑详情页
 albumdetail:

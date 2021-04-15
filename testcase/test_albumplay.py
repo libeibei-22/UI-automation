@@ -47,9 +47,9 @@ class test_albumplay_case(unittest.TestCase):
 
     def test01_playsong(self):
         '''查看专辑是否正确'''
-        self.search_song.searchkeywords_selectone("测试", "测试哈哈")
-        self.album_detail.selectsong("短1")
-        self.assertEqual(self.album_play.get_albumtitle(),"测试哈哈")
+        self.search_song.searchkeywords_selectone("测试","测试","专辑")
+        self.album_detail.selectsong("333")
+        self.assertEqual(self.album_play.get_albumtitle(),"测试")
         self.add_img()
 
     def test02_play_status(self):

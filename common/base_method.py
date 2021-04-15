@@ -28,7 +28,7 @@ class Base_page:
         except AttributeError as e:
             raise e
 
-    def get_toast_text(self,timeout=20, poll_frequency=0.1):
+    def get_toast_text(self,timeout=10, poll_frequency=0.1):
         '''
             定位toast元素，获取text属性
             '''
@@ -114,5 +114,6 @@ class Base_page:
     #     # except NameError as e:
     #     #     # self.logger.error("Failed to take screenshot! %s" % e)
     #     #     self.get_windows_img()
+
     '''元素管理文件路径'''
     data_save_address="D:/android-sdk_r24.4.1-windows/android-sdk-windows/tools/untitled/data"
