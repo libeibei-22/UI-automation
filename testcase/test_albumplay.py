@@ -25,7 +25,6 @@ class test_albumplay_case(unittest.TestCase):
         self.imgs = []
         self.addCleanup(self.cleanup)
         self.driver.launch_app()
-        time.sleep(2)
         try:
             self.startpage.click_adskipbtn()
             print("出现了开屏广告并跳过了它")

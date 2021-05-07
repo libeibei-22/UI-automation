@@ -69,3 +69,47 @@ search:
 albumdetail:
   songlist: "//*[@resource-id='com.shinyv.cnr:id/album_item_name']" #详情页单曲列表，单曲名称id
   albumname: "com.shinyv.cnr:id/tv_album_name" #专辑名称
+
+#听广播首页
+broadcastPage:
+  playicon: "com.shinyv.cnr:id/voicePlayingIcon"  #顶部播放按钮
+  playtitle: "com.shinyv.cnr:id/tv_title"  #正在播放的频道
+  programlive: "com.shinyv.cnr:id/tv_program"  #当前播放的节目名称
+  historybtn: "com.shinyv.cnr:id/btn_live_history" #节目单入口
+  tvname: "//*[@resource-id='com.shinyv.cnr:id/tv_name']" #当前页内容入口，比如”国家台“
+  tvlogo: "com.shinyv.cnr:id/iv_logo"  #顶部电台logo
+
+#听广播二级页-电台列表，例如本地台列表，国家台列表
+broadcastlist:
+  title: "//*[@resource-id='com.shinyv.cnr:id/title_txt']" #xpath,电台列表标题：国家台、地方台
+  titleget: "com.shinyv.cnr:id/title_txt" #id,电台列表标题：国家台、地方台
+  radioName: "//*[@resource-id='com.shinyv.cnr:id/name']" #电台名称
+  radioDes: "//*[@resource-id='com.shinyv.cnr:id/descriptions']" #当前正在播放的栏目描述
+  cityname: "//*[@resource-id='com.shinyv.cnr:id/tv']" #地方台，城市名称
+  back: "com.shinyv.cnr:id/back_img" #返回按钮
+  radioIcon: "com:shinyv:cnr:id/headphone" #电台图标
+
+
+radioPlay:
+  historyenter: "com.shinyv.cnr:id/play_song_list" #回听入口
+  playHd: "com.shinyv.cnr:id/iv_hd" #音质切换
+  playStop: "com.shinyv.cnr:id/iv_stop_alarm" #定时停止
+  playColl: "com.shinyv.cnr:id/iv_coll" #电台收藏
+  programTitle: "com.shinyv.cnr:id/tv_program_title" #当前节目名称
+  programTime: "com.shinyv.cnr:id/tv_anchor_name" #当前节目播放时段
+  startTime: "com.shinyv.cnr:id/tvStartTime" #开始时间 text:15:18:50
+  endTime: "com.shinyv.cnr:id/tvEndTime" #结束时间
+  seekbar: "com.shinyv.cnr:id/play_song_seekbar" #播放进度条 text:8330.0
+  previous: "com.shinyv.cnr:id/play_song_previous" #上个节目
+  next: "com.shinyv.cnr:id/play_song_next" #下个节目
+  play: "com.shinyv.cnr:id/play_img" #播放/暂停
+  back: "com.shinyv.cnr:id/play_song_back" #左上角返回按钮
+  radioTitle: "com.shinyv.cnr:id/tv_radio_title" #顶部频道名称
+  more: "com.shinyv.cnr:id/play_song_more" #右上角更多按钮
+  radioOrder: "com.shinyv.cnr:id/btn_order" #收藏按钮
+  oldRadio: "com.shinyv.cnr:id/btn_program_detail" #听往期按钮
+  choicProgram: "com.shinyv.cnr:id/content_layout" #推荐栏目
+  choicRadio: "com.shinyv.cnr:id/item_container" #推荐电台
+  historyname: "//*[@resource-id='com.shinyv.cnr:id/tv_column_name']" #xpath, 节目单页，回听节目单名称
+  historytab: "//*[@resource-id='android:id/text1']" #xpath, 节目单页，回听节目单tab，例如“今天”，“昨天”
+  speed: "com.shinyv.cnr:id/speed_img" #倍速按钮

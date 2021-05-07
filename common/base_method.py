@@ -27,6 +27,13 @@ class Base_page:
             self.find_element(*loc).send_keys(value)
         except AttributeError as e:
             raise e
+    def is_element_exist(self,element):
+        time.sleep(3)
+        source=self.driver.page_source
+        if element in source:
+            return True
+        else:
+            return False
 
     def get_toast_text(self,timeout=10, poll_frequency=0.1):
         '''
@@ -85,7 +92,7 @@ class Base_page:
     #     method explain:获取当前屏幕的截图
     #     parameter explain：【name】 截图的名称
     #     Usage:
-    #         device.take_screenShot(u"个人主页")   #实际截图保存的结果为：2018-01-13_17_10_58_个人主页.png
+    #         device.take_screenShot(u"个人主页")   #实际截图保存的结果为：2021-01-13_17_10_58_个人主页.png
     #     '''
     #     day = time.strftime("%Y-%m-%d", time.localtime(time.time()))
     #     fq = "..\\screenShots\\" + day
