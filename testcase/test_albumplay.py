@@ -216,6 +216,7 @@ class test_albumplay_case(unittest.TestCase):
         '''切换音质'''
         self.search_song.searchkeywords_selectone("测试专辑8", "测试专辑8")
         self.album_detail.selectsong("3")
+        self.add_img()
         if self.album_play.hdtext_get()=="标准":
             self.album_play.hd_click()
             self.album_play.hd2_click()
@@ -224,8 +225,9 @@ class test_albumplay_case(unittest.TestCase):
         elif self.album_play.hdtext_get()=="高品质":
             self.album_play.hd_click()
             self.album_play.hd1_click()
-            self.assertEqual(self.album_play.hdtext_get(),"标准")
+            self.assertEqual(self.album_play.hdtext_get()," 标准 ")
             self.add_img()
+        self.add_img()
     def test14_speed(self):
         '''倍速切换'''
         self.search_song.searchkeywords_selectone("测试专辑8", "测试专辑8")
@@ -256,8 +258,8 @@ class test_albumplay_case(unittest.TestCase):
         except Exception as e:
             self.album_play.replyedit_input("测试评论")
             self.album_play.replysend_click()
-            print(self.device.get_toast_text())
-            self.assertEqual(self.device.get_toast_text(),"评论已发出，审核后显示")
+            result=self.device.get_toast_text()
+            self.assertEqual(result,"评论已发出，审核后显示")
     def test17_paopaoisDisplay(self):
         '''泡泡条展示'''
         self.search_song.searchkeywords_selectone("测试专辑8", "测试专辑8")
@@ -272,7 +274,9 @@ class test_albumplay_case(unittest.TestCase):
         '''泡泡条不展示'''
         self.search_song.searchkeywords_selectone("测试专辑8", "测试专辑8")
         self.album_detail.selectsong("3")
+        self.add_img()
         self.album_play.click_next_song()
+        self.add_img()
         try:
             result=self.album_play.paopaoview_Display()
         except Exception as e:
@@ -323,11 +327,12 @@ class test_albumplay_case(unittest.TestCase):
         '''获取主创描述'''
         self.search_song.searchkeywords_selectone("测试专辑8", "测试专辑8")
         self.album_detail.selectsong("2")
-        self.device.swipeUp(n=2)
         time.sleep(2)
+        self.device.swipeUp(n=2)
         self.album_play.XZP_click("主创")
         self.add_img()
         self.assertEqual(self.album_play.zhuchangdes_get(),u"我是UMC哈哈哈")
+
     def tearDown(self) -> None:
         print("Case执行完毕")
         pass

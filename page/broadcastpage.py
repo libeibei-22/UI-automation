@@ -36,8 +36,8 @@ class broadcastpage(base_method.Base_page):
     def city_click(self,name):
         citynamenew=(self.by.XPATH,self.cityname+"[@text={}]".format("'"+name+"'"))
         self.find_element(*citynamenew).click()
-    #获取电台列表顶部的标题
-    def radiotitle_get(self):
+    #获取电台列表页顶部的标题
+    def radiolist_title_get(self):
         result=self.find_element(*self.titleget).text
         return result
     def radioname_click(self,name):

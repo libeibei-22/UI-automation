@@ -36,7 +36,7 @@ albumplay:
   paopaoview: "com.shinyv.cnr:id/oIv_ad_paopao" #泡泡条view
   paopaotitle: "com.shinyv.cnr:id/tv_ad_paopao_title" #泡泡条标题（第一标题）
   paopaodes: "com.shinyv.cnr:id/tv_ad_paopao_des" #泡泡条描述（第二标题）
-  XZP: "//*[@resource-id='android:id/text1']" #评论/主创/描述 文本
+  XZP: "//*[@resource-id='android:id/text1']" #评论/主创/详情 文本
   zhuchuangname: "com.shinyv.cnr:id/tv_name" #主创昵称
   zhuchuangdes: "com.shinyv.cnr:id/tv_des" #主创简介
   zhuchuangfocus: "com.shinyv.cnr:id/btn_focus" #主创关注按钮
@@ -106,10 +106,15 @@ radioPlay:
   back: "com.shinyv.cnr:id/play_song_back" #左上角返回按钮
   radioTitle: "com.shinyv.cnr:id/tv_radio_title" #顶部频道名称
   more: "com.shinyv.cnr:id/play_song_more" #右上角更多按钮
-  radioOrder: "com.shinyv.cnr:id/btn_order" #收藏按钮
+  radioOrder: "com.shinyv.cnr:id/iv_coll" #红心收藏按钮
   oldRadio: "com.shinyv.cnr:id/btn_program_detail" #听往期按钮
   choicProgram: "com.shinyv.cnr:id/content_layout" #推荐栏目
   choicRadio: "com.shinyv.cnr:id/item_container" #推荐电台
   historyname: "//*[@resource-id='com.shinyv.cnr:id/tv_column_name']" #xpath, 节目单页，回听节目单名称
   historytab: "//*[@resource-id='android:id/text1']" #xpath, 节目单页，回听节目单tab，例如“今天”，“昨天”
   speed: "com.shinyv.cnr:id/speed_img" #倍速按钮
+  hd: "//*[@resource-id='com.shinyv.cnr:id/tv_title']" #xpath 音质类型，标准 高音质
+  clockname: "//android.widget.RelativeLayout[2]/android.widget.TextView[1]" #xpath, 倒计时选项，10分，20分
+  timename: "com.shinyv.cnr:id/tv_clock" #倒计时时间，“倒计时xx分xx秒”
+  order: "com.shinyv.cnr:id/btn_order" #电台订阅按钮
+  btnplayer: "com:shinyv:cnr:id/btn_Play" #播放页顶部悬浮播放按钮

@@ -28,6 +28,7 @@ class Base_page:
         except AttributeError as e:
             raise e
     def is_element_exist(self,element):
+        '''element: text,resource-id等元素值'''
         time.sleep(3)
         source=self.driver.page_source
         if element in source:

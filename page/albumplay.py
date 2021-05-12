@@ -46,7 +46,7 @@ class albumplay(base_method.Base_page):
     paopaoview=(by.ID, result["paopaoview"]) # 泡泡条view
     paopaotitle=(by.ID, result["paopaotitle"])  # 泡泡条标题（第一标题）
     paopaodes=(by.ID, result["paopaodes"])  # 泡泡条描述（第二标题）
-    XZP=result['XZP'] #评论/主创/描述 文本
+    XZP=result['XZP'] # xpath,评论/主创/详情 文本
     zhuchuangname=(by.ID,result["zhuchuangname"]) #主创昵称
     zhuchuangdes=(by.ID,result["zhuchuangdes"]) #主创简介
     zhuchuangfocus=(by.ID,result["zhuchuangfocus"]) #关注主创
@@ -149,6 +149,8 @@ class albumplay(base_method.Base_page):
     def paopaoview_Display(self):
         return self.find_element(*self.paopaoview).is_displayed()
     def XZP_click(self,item):
+        # xzpnew=self.by.XPATH,self.XZP+'[@text={}]'.format("'"+item+"'")
+        # self.find_element(*xzpnew).click()
         self.find_element(self.by.XPATH,self.XZP+'[@text={}]'.format("'"+item+"'")).click()
     def zhuchuangname_get(self):
         return self.find_element(*self.zhuchuangname).text
